@@ -1,0 +1,9 @@
+*.exe
+*.obj
+build-log.txt
+out.txt
+.workbuddy/
+progress/
+plan/
+打开工作区.cmd
+.exe.txt
