@@ -85,10 +85,13 @@ int main() {
     for (int i = 0; i < 5; ++i) {
         delete[] blocks[i];
     }
-    return 0;
-}
-
-// ============================================================
+  std::printf("sizeof(int*)  = %zu\n", sizeof(int*));
+  std::printf("sizeof(char*) = %zu\n", sizeof(char*));
+  std::printf("sizeof(void*) = %zu\n", sizeof(void*));  
+ 
+return 0;
+  }
+ // ============================================================
 // MENTOR'S SELF-DOUBT（这份样板最可能错在哪——先自己找，再对答案）
 // ============================================================
 // 1. 指针比较用了 uintptr_t 整数转换：比较"无关指针"在标准里是
