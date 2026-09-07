@@ -88,7 +88,12 @@ int main() {
   std::printf("sizeof(int*)  = %zu\n", sizeof(int*));
   std::printf("sizeof(char*) = %zu\n", sizeof(char*));
   std::printf("sizeof(void*) = %zu\n", sizeof(void*));  
- 
+ struct S {
+        char  a;
+        int   b;
+        char  c;
+    };
+    std::printf("sizeof(S) = %zu\n", sizeof(S));
 return 0;
   }
  // ============================================================
