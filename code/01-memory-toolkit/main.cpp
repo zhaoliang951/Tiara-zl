@@ -94,6 +94,10 @@ int main() {
         char  c;
     };
     std::printf("sizeof(S) = %zu\n", sizeof(S));
+        struct Inner { char x; int y; };
+    struct Outer { char a; Inner in; char b; };
+    std::printf("sizeof(Inner) = %zu\n", sizeof(Inner));
+    std::printf("sizeof(Outer) = %zu\n", sizeof(Outer));
 return 0;
   }
  // ============================================================
