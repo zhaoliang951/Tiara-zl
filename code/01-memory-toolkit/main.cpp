@@ -98,6 +98,13 @@ int main() {
     struct Outer { char a; Inner in; char b; };
     std::printf("sizeof(Inner) = %zu\n", sizeof(Inner));
     std::printf("sizeof(Outer) = %zu\n", sizeof(Outer));
+        struct T {
+        char    a;
+        double  d;
+        int     arr[3];
+    };
+    std::printf("sizeof(T) = %zu\n", sizeof(T));
+
 return 0;
   }
  // ============================================================
