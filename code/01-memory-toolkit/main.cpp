@@ -104,6 +104,10 @@ int main() {
         int     arr[3];
     };
     std::printf("sizeof(T) = %zu\n", sizeof(T));
+        struct Point { int x; int y; };
+    struct Entity { char tag; Point pos; double hp; int ids[3]; };
+    std::printf("sizeof(Point) = %zu\n", sizeof(Point));
+    std::printf("sizeof(Entity) = %zu\n", sizeof(Entity));
 
 return 0;
   }
