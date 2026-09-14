@@ -39,7 +39,11 @@ static void probe_stack(int depth) {
         probe_stack(depth + 1);
     }
 }
-
+class Animal {
+public:
+    virtual void speak() { std::printf("woof\n"); }
+    int legs = 4;
+};
 int main() {
     // ① 代码区：取函数地址（标准禁止对 main 取址，所以用 add）
     std::printf("code   &add              = %p\n", (void*)&add);
@@ -112,6 +116,10 @@ int main() {
     struct TestDemo { char ch; Sub subData; double db; int arr[4]; };
     std::printf("sizeof(Sub) = %zu\n", sizeof(Sub));
     std::printf("sizeof(TestDemo) = %zu\n", sizeof(TestDemo));
+        Animal a;
+    std::printf("sizeof(Animal) = %zu\n", sizeof(Animal));
+    std::printf("vptr = %p\n", *(void**)&a);
+    std::printf("&legs  = %p\n", (void*)&a.legs);
 return 0;
   }
  // ============================================================
