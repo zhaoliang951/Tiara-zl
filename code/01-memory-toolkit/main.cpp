@@ -42,7 +42,8 @@ static void probe_stack(int depth) {
 class Animal {
 public:
     virtual void speak() { std::printf("woof\n"); }
-    int legs = 4;
+     virtual void eat() { std::printf("yum\n"); }
+int legs = 4;
 };
 int main() {
     // ① 代码区：取函数地址（标准禁止对 main 取址，所以用 add）
@@ -120,6 +121,9 @@ int main() {
     std::printf("sizeof(Animal) = %zu\n", sizeof(Animal));
     std::printf("vptr = %p\n", *(void**)&a);
     std::printf("&legs  = %p\n", (void*)&a.legs);
+    void** vtable = *(void***)&a;
+    std::printf("vtable[0] = %p\n", vtable[0]);
+    std::printf("vtable[1] = %p\n", vtable[1]);
 return 0;
   }
  // ============================================================
