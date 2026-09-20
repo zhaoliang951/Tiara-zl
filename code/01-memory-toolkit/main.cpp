@@ -124,6 +124,9 @@ int main() {
     void** vtable = *(void***)&a;
     std::printf("vtable[0] = %p\n", vtable[0]);
     std::printf("vtable[1] = %p\n", vtable[1]);
+  typedef void(*Fn)(Animal*);
+    Fn fn = (Fn)vtable[0];
+    fn(&a);
 return 0;
   }
  // ============================================================
