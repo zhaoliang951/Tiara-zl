@@ -7,3 +7,6 @@ progress/
 plan/
 打开工作区.cmd
 .exe.txt
+*.ilk
+*.pdb
+*.obj
