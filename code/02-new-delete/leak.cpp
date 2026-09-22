@@ -14,11 +14,14 @@ int main() {
     _CrtSetReportFile(_CRT_WARN, _CRTDBG_FILE_STDOUT);
 
     // TODO: new 一个Player，初始化hp=100，level=1，打印地址
+    // _CrtSetBreakAlloc(160);   // 断点已完成使命，注释掉——留着它每次 F5 都会停下
     Player* p = new Player{100, 1};
     std::cout << (void*)p << '\n';
     // 故意不delete，制造内存泄漏
 
     // 程序退出前把泄漏报告倒出来（Debug CRT的泄漏检测器）
-    _CrtDumpMemoryLeaks();
+    delete p;    // 先释放
+    // 程序退出前把泄漏报告倒出来（Debug CRT的泄漏检测器）
+    _CrtDumpMemoryLeaks();   // 再清点——此时应两手空空
     return 0;
 }
