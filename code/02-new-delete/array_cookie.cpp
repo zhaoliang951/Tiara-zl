@@ -7,8 +7,10 @@
 struct Player {
     int hp;
     int level;
+    Player() { std::cout << "Player constructed\n"; }   // ← 新增这行
     ~Player() { std::cout << "~Player\n"; }
 };
+
 
 // 版本 B：无析构函数（平凡析构）
 struct Monster {
