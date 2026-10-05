@@ -1,13 +1,13 @@
-// W5 靶子：hp = 100，每秒打印一次
-// 自写扫描器的任务：不看代码、不看这里任何地址，纯靠读内存找到 hp 并改掉它
 #include <iostream>
 #include <windows.h>
 
 int main() {
-    int hp = 100;   // ← 扫描器要找的就是这个
+    int hp = 100;
+    int tick = 0;
     while (true) {
         std::cout << "hp = " << hp << '\n';
-        Sleep(1000);
+        Sleep(1000); // 暂停1000ms = 1秒
+        tick++;
+        if (tick % 5 == 0) hp -= 10; // 每5秒hp减少10，制造数值变化
     }
-    return 0;
 }
