@@ -34,7 +34,7 @@ std::vector<Region> TakeSnapshot(HANDLE proc) {
 }
 
 int main() {
-    DWORD pid = 10060;   // TODO：tasklist 查最新 PID 填这里
+    DWORD pid = 41040;   // TODO：tasklist 查最新 PID 填这里
 
     HANDLE proc = OpenProcess(PROCESS_VM_READ | PROCESS_QUERY_INFORMATION, FALSE, pid);
     if (!proc) { std::cout << "OpenProcess failed: " << GetLastError() << '\n'; return 1; }
@@ -58,13 +58,17 @@ int main() {
             int old_v, now_v;
             memcpy(&old_v, &r.data[i], 4);
             memcpy(&now_v, &now[i], 4);
-            if (now_v - old_v == -10)
+            if (now_v != old_v)                                  // ← 只看"变没变"
             {
                 uintptr_t addr = r.base + i;
-                std::cout << "地址:0x" << std::hex << addr << " 旧值:" << old_v << " 新值:" << now_v << '\n';
+                std::cout << "地址:0x" << std::hex << addr
+                          << std::dec                                // ← 打数值前切回十进制
+                          << "  旧:" << old_v << " 新:" << now_v
+                          << "  变化:" << (now_v - old_v) << '\n';
                 found++;
             }
         }
+
         // =====================================
     }
 
